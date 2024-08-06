@@ -11,7 +11,8 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks, InspectorControls } from '@wordpress/block-editor';
+import { Panel, PanelBody, PanelRow, PanelHeader, SelectControl } from '@wordpress/components';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -29,9 +30,45 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
+export default function Edit({attributes, setAttributes}) {
+
+
+	const blockProps = useBlockProps( {
+		className: [attributes.layoutDirection, attributes.contentJustify],
+	} );
+
 	return (
-		<div { ...useBlockProps() }>
+		<div { ...blockProps }>
+			<InspectorControls>
+				<Panel>
+					<PanelBody title="Layout Direction" initialOpen={ true }>
+						<PanelRow>
+							<SelectControl
+								label="Layout"
+								value={attributes.layoutDirection}
+								options={[
+									{label:'veritcal', value:'is-acc-vertical'},
+									{label:'horizontal', value:'is-acc-horizontal'},
+								]}
+								onChange={value => setAttributes({layoutDirection: value})}
+							/>
+						</PanelRow>
+					</PanelBody>
+					<PanelBody title="Content Justification" initialOpen={ true }>
+						<PanelRow>
+							<SelectControl
+								label="Layout"
+								value={attributes.contentJustify}
+								options={[
+									{label:'start', value:'is-acc-justify-start'},
+									{label:'end', value:'is-acc-justify-end'},
+								]}
+								onChange={value => setAttributes({contentJustify: value})}
+							/>
+						</PanelRow>
+					</PanelBody>
+				</Panel>
+			</InspectorControls>
 			<InnerBlocks/>
 		</div>
 	);

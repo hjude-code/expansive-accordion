@@ -32,6 +32,16 @@
 			"textAlign": true
 		}
 	},
+	"attributes": {
+		"layoutDirection":{
+			"type":"string",
+			"default":"is-acc-horizontal"
+		},
+		"contentJustify":{
+			"type":"string",
+			"default":"is-acc-justify-start"
+		}
+	},
 	"textdomain": "expansive-accordion",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",

@@ -8,9 +8,24 @@
  * Replace them with your own styles or remove the file completely.
  */
 .wp-block-exp-acc-expansive-accordion {
-  background-color: #21759b;
-  color: #fff;
-  padding: 2px;
+  padding: 0px;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.wp-block-exp-acc-expansive-accordion.is-acc-justify-start {
+  justify-content: start;
+}
+
+.wp-block-exp-acc-expansive-accordion.is-acc-justify-end {
+  justify-content: end;
+}
+
+@media (min-width: 768px) {
+  .wp-block-exp-acc-expansive-accordion.is-acc-horizontal {
+    flex-direction: row !important;
+  }
 }
 
 /*# sourceMappingURL=style-index.css.map*/
