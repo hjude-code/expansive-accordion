@@ -6,7 +6,31 @@
 	"title": "Expansive Accordion",
 	"category": "design",
 	"supports": {
-		"html": false
+		"html": false,
+		"background": {
+			"backgroundImage": true,
+			"backgroundSize": true
+		},
+		"alignWide": true,
+		"color": {
+			"background": true,
+			"button": true,
+			"enableContrastChecker": true,
+			"gradients": true,
+			"heading": true,
+			"link": true,
+			"text": true
+		},
+		"dimensions": {
+			"aspectRatio": true,
+			"minHeight": true
+		},
+		"renaming": true,
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true,
+			"textAlign": true
+		}
 	},
 	"textdomain": "expansive-accordion",
 	"editorScript": "file:./index.js",
